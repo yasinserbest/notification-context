@@ -9,13 +9,13 @@
 .form__container--title {
   color: darkviolet;
 }
-.form__elements {
-}
+
 .form__elements--input {
   margin-right: 10px;
   border: none;
   padding: 5px;
   border-radius: 4px;
+  font-size: 20px;
 }
 .form__elements--input:focus {
   outline: none;
@@ -27,6 +27,7 @@
   background-color: yellow;
   box-shadow: rgba(148, 0, 211, 0.582) 0px 5px 15px;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .form__elements--button {
@@ -37,4 +38,5 @@
   background-color: yellow;
   box-shadow: rgba(148, 0, 211, 0.582) 0px 5px 15px;
   cursor: pointer;
+  font-size: 20px;
 }

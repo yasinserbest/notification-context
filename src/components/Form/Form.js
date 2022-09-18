@@ -4,10 +4,15 @@ import "./Form.css";
 function Form() {
   const [titleVal, settitleVal] = useState("");
   const [messageVal, setmessageVal] = useState("");
+  const [type, settype] = useState("");
   const notificationCtx = useContext(NotificationContext);
 
   const addNot = () => {
-    notificationCtx.addNotification(titleVal, messageVal, "SUCCESS");
+    notificationCtx.addNotification(titleVal, messageVal, type);
+  };
+
+  const handleChange = (e) => {
+    settype(e.target.value);
   };
 
   return (
@@ -28,11 +33,15 @@ function Form() {
           onChange={(e) => setmessageVal(e.target.value)}
           placeholder="Message"
         />
-        <select className="form__elements--select">
+        <select
+          value={type}
+          onChange={handleChange}
+          className="form__elements--select"
+        >
           <option>Choose Notification Type</option>
-          <option>SUCCESS</option>
-          <option>WARNING</option>
-          <option>ERROR</option>
+          <option value="SUCCESS">SUCCESS</option>
+          <option value="WARNING">WARNING</option>
+          <option value="ERROR">ERROR</option>
         </select>
       </div>
       <button className="form__elements--button" onClick={addNot}>

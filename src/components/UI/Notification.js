@@ -4,6 +4,7 @@ import NotificationContext from "../../store/notification-context";
 
 const Notification = (props) => {
   const notificationCtx = useContext(NotificationContext);
+
   const [width, setWidth] = useState(0);
   const [intervalID, setIntervalID] = useState(null);
   const [exit, setExit] = useState(false);
@@ -12,7 +13,7 @@ const Notification = (props) => {
     const id = setInterval(() => {
       setWidth((prevState) => {
         if (prevState < 100) {
-          return prevState + 0.5;
+          return prevState + 0.5; //add 0.5 to bar width in every 10 ms
         }
         clearInterval(id);
         return prevState;
@@ -35,6 +36,7 @@ const Notification = (props) => {
 
   useEffect(() => {
     if (width === 100) {
+      //if bar width == 100 close notification
       handleCloseNotification();
     }
   }, [width]);
@@ -49,6 +51,8 @@ const Notification = (props) => {
         return "success";
       case "ERROR":
         return "error";
+      case "WARNING":
+        return "warning";
 
       default:
         return "";

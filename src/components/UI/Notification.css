@@ -7,6 +7,7 @@
   animation-fill-mode: backwards;
   position: relative;
   width: 300px;
+  padding: 5px;
 }
 
 @keyframes SlideLeft {
@@ -32,16 +33,18 @@
   animation: SlideRight 0.4s;
   animation-fill-mode: forwards;
 }
-
-.notification.success .notification__title {
-  color: blueviolet;
+.notification__title {
   margin: 0;
   padding: 10px;
 }
+.notification.success .notification__title {
+  color: blueviolet;
+}
 .notification.error .notification__title {
-  color: tomato;
-  margin: 0;
-  padding: 10px;
+  color: red;
+}
+.notification.warning .notification__title {
+  color: orange;
 }
 .notification .notification__message {
   margin: 0;
@@ -68,4 +71,7 @@
 
 .notification.error .notification__bar {
   background-color: red;
+}
+.notification.warning .notification__bar {
+  background-color: orange;
 }
